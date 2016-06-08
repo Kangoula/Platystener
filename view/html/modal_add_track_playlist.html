@@ -1,0 +1,29 @@
+<!-- Modal permettant la sélection d'une playlist dans laquelle ajouter un titre -->
+<div class="modal fade" id="modalAdd-track-playlit">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-color-custom radius">
+                <!-- Bouton de fermeture du modal -->
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+                <!-- Titre -->
+                <h4 class="modal-title">Ajout à une Playlist</h4>
+            </div>
+          
+            <div class = "modal-body">
+                <!-- Contiendra la liste des playlists de l'utilisateur -->
+                <div class="form-group">
+                    <label for="playlist-selector">Selectionner la playlist :</label>
+                    <select class="form-control" id="playlist-selector" name="playlist-selection"></select> 
+                </div>
+                              
+            </div>
+
+            <!-- Les boutons de confirmation et d'annulation seront générés par le serveur --> 
+            <div class="modal-footer" id="add-track-playlist-footer">
+                
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

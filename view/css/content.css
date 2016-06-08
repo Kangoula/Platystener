@@ -1,0 +1,31 @@
+#page-content{
+    padding-top:50px;
+    height: 100%;
+}
+.content {
+    height:100%;
+}
+#main-panel > #dashboard > #connect-error, #connect-success{
+    display:none;
+}
+
+/*si Chrome*/
+@media (-webkit-min-device-pixel-ratio:0){
+    #page-content > .row > #main-panel{
+        min-height: 62em !important;
+    }
+}
+/*si Firefox*/
+@-moz-document url-prefix(){
+    #page-content > .row > #main-panel{
+        min-height: 46.5em !important;
+    }
+}
+#page-content > .row > #main-panel{
+    background: #eaeaea !important;
+    min-height: 49em;
+}
+#error-username, #error-email, #error-pass, #error-pass-conf, #subsribe-success {
+    display:none;
+}
+

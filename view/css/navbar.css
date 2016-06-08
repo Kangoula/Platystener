@@ -1,0 +1,31 @@
+#connect-btn{
+/*    margin-left: 30em;*/
+    width: 130px;
+}
+#player{
+    margin-top:10px;
+}
+.active-custom, .nav-option:hover{
+    border-bottom: 4px solid #5CB85C;
+    margin-top: -3px;
+}
+.nav-option{
+    text-align: center;
+}
+#music-sign-navbar .glyphicon-music{
+    color: #2e7d32;
+}
+#defile { 
+    position:absolute; 
+    margin-top:1px; 
+    background-color:transparent; 
+}
+#track-title{
+    background-color: #eaeaea; 
+    width: 300px;
+    height: 22px;
+    border: lightgrey solid 1px; 
+    overflow:hidden;
+    position:relative;
+}
+

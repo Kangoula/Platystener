@@ -1,0 +1,16 @@
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -3em;
+}
+.footer, .push {
+    height: 3em;
+}
+.footer{
+    margin : 0;
+    padding-top:0.75em;
+    padding-left: 2em;
+    color: lightgrey;
+    background-color: #3c3c3c;
+}

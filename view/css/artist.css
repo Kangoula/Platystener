@@ -1,0 +1,20 @@
+.artist-all-thumbnail{
+    height: 400px;
+}
+.artist-all-thumbnail img{
+    position:relative;
+    height: 300px;
+}
+.artist-all-thumbnail p{
+    position:relative;
+    
+    overflow:hidden;
+}
+.artist-all:hover{
+    text-decoration: none;
+}
+.artist-all:hover h3{
+    color: #2e7d32;
+}
+
+

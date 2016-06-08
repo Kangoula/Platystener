@@ -1,0 +1,37 @@
+<!-- Le modal qui contiendra les informations d'un artiste -->
+<div class="modal fade" id="modalArtist">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-color-custom radius">
+                <!-- Bouton de fermeture du modal -->
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+                <!-- Titre -->
+                <h4 class="modal-title" id="modalArtist-title">Title</h4>
+            </div>
+            
+            <!-- Contient l'image de l'artiste -->
+            <div class = "modal-body col-md-5">
+                <!-- image par défaut qui sera modifiée par le suite -->
+                <img id="modalArtist-img" src ="http://userserve-ak.last.fm/serve/_/28575395/2econd+Class+Citizen+l_2bb4bdd91d75a87ae96697b75b4d.jpg" class="img-responsive img-rounded" alt="artist"/>
+            </div>
+            
+            <!-- Contient les informations de l'artiste et ses titres -->
+            <div class = "modal-body col-md-7">
+                <h4>Informations</h4>
+                <p id = "modalArtist-info"></p>
+                <br>
+                <h4>Titres de cet Artiste</h4>
+                <p id = "modalArtist-tracklist">
+                    Rien a afficher.
+                </p>
+            </div>
+            
+            <!-- Un autre bouton pour fermer le modal -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default no-radius" data-dismiss="modal">Fermer</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

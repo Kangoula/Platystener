@@ -1,0 +1,29 @@
+@font-face{
+    font-family: "Roboto";
+    src: url(../font/Roboto/Roboto-Regular.ttf) format("truetype");
+}
+html,body { 
+    height:100%;
+    margin : 0;
+    background-color: white;
+    font-family: "Roboto", sans-serif;
+}
+.row{
+    height: 100%;
+}
+.no-radius{
+    border-radius:0px;
+}
+.bg-color-custom{
+    background-image: linear-gradient(to bottom, #8bc34a 0px,  #4caf50 100%);
+    background-repeat: repeat-x;
+    color : white;
+}
+.radius{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+
+
+

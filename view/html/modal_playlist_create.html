@@ -1,0 +1,38 @@
+<!-- Modal permettant la création de playlist -->
+<div class="modal fade" id="modalPlaylist">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-color-custom radius">
+                <!-- Bouton de fermeture du modal -->
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+                <!-- Titre -->
+                <h4 class="modal-title">Creation d'une Playlist</h4>
+            </div>
+           
+            <div class = "modal-body">
+                
+                <!-- Input dans lequel renseigner le nom de la playlist -->
+                <div class="input-group input-group">
+                    <span class="input-group-addon">Nom</span>
+                    <input id="playlist-name-input" type="text" class="form-control" placeholder="Playlist">
+                </div>              
+
+            </div>
+
+            <div class="modal-footer">
+                
+                <!-- Bouton permettant la creation de la playlist -->
+                <button onclick="createPlaylist('#playlist-name-input')" class="btn no-radius btn-success pull-left" id="btn-submit-playlist" data-dismiss="modal" disabled>
+                    <span class="glyphicon glyphicon-ok"></span>
+                </button>
+                
+                <!-- Fermeture du modal -->
+                <button type="button" class="btn btn-danger no-radius pull-right" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

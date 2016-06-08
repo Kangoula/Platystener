@@ -1,0 +1,50 @@
+<!-- Modal permettant à une utilisateur de s'authentifier -->
+<div class="modal fade" id="modalConnect">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-color-custom radius">
+                <!-- Bouton de fermeture du modal -->
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+                <!-- Titre -->
+                <h4 class="modal-title">Connexion</h4>
+            </div>
+            <!-- Contient les champs à renseigner -->
+            <div class = "modal-body">
+                
+                <!-- Nom d'utilisateur -->
+                <div class="input-group input-group">
+                    <span class="input-group-addon glyphicon glyphicon-user"></span>
+                    <input id="username-input" type="text" class="form-control" placeholder="Username">
+                </div>
+                
+                <br>
+                
+                <!-- Mot de passe -->
+                <div class="input-group input-group">
+                    <span class="input-group-addon glyphicon glyphicon-lock"></span>
+                    <input id="password-input" type="password" class="form-control" placeholder="Password">
+                </div>
+                
+                <br>
+                
+                Pas encore de compte? <a data-dismiss="modal" onclick="displaySubscribeForm();">S'inscrire</a>
+
+            </div>
+
+            <div class="modal-footer">
+                
+                <!-- Bouton de connexion -->
+                <button class="btn no-radius btn-success pull-left" id="btn-connect" data-dismiss="modal" onclick="connect()">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </button>
+                
+                <!-- Bouton permettant de fermer le modal -->
+                <button type="button" class="btn btn-danger no-radius pull-right" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

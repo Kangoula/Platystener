@@ -1,0 +1,52 @@
+<div class="col-md-12 col-xs-12">
+    <h3><span class="glyphicon glyphicon-pencil"></span> Inscription </h3>
+    <br>
+    <form class="form-horizontal" role="form">
+        
+        <div class="form-group">
+            <label for="subscribe-username" class="col-sm-2 control-label">Username</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="subscribe-username" placeholder="Username">
+            </div>
+            <label id="error-username" class="col-sm-4 control-label text-danger error-subscribe">Le nom d'utilisateur doit faire 6 caractères ou plus</label>
+        </div>
+        
+        <div class="form-group">
+            <label for="subscribe-email" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-6">
+                <input type="email" class="form-control" id="subscribe-email" placeholder="Email">
+            </div>
+            <label id="error-email" class="col-sm-4 control-label text-danger error-subscribe">Adresse mail invalide (forme : adr@esse.mail)</label>
+        </div>
+        
+        <div class="form-group">
+            <label for="subscribe-password" class="col-sm-2 control-label">Mot de passe</label>
+            <div class="col-sm-6">
+                <input type="password" class="form-control" id="subscribe-password" placeholder="Password">
+            </div>
+            <label id="error-pass" class="col-sm-4 control-label text-danger error-subscribe">Le mot de passe doit contenir au minimum 8 caractères</label>
+        </div>
+
+        <div class="form-group">
+            <label for="subscribe-password-confirm" class="col-sm-2 control-label">Confirmer</label>
+            <div class="col-sm-6">
+                <input type="password" class="form-control" id="subscribe-password-confirm" placeholder="Password">
+            </div>
+            <label id="error-pass-conf" class="col-sm-4 control-label text-danger error-subscribe">Le mot de passe et sa confirmation ne correspondent pas</label>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-6">
+                <a class="btn no-radius btn-success pull-left" onclick="subscribe()" >
+                    <span class="glyphicon glyphicon-ok"></span>  Valider
+                </a>
+            </div>
+        </div>
+        
+    </form>
+
+
+
+</div>
+
+

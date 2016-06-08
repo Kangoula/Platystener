@@ -1,0 +1,64 @@
+#playlists{
+    height: 30%;
+    left: 0;
+    position: fixed;
+    z-index: 1;
+    background: white;
+}
+#playlists > #accordion{
+    height: 41em;
+    overflow: hidden;
+    overflow-y: auto;
+}
+/*si Chrome*/
+@media (-webkit-min-device-pixel-ratio:0){
+    #playlists > #accordion{
+        height: 55em;
+        overflow: hidden;
+        overflow-y: auto;
+    }
+}
+
+#playlists #accordion .panel-custom{
+    margin-bottom: -6px;
+    border:none;
+    background-color: white;
+}
+#playlists #accordion .panel-collapse{
+    margin-bottom: -6px;
+    border:none;
+    background-color: white;
+}
+.panel-group .panel {
+    border-radius : 0;
+}
+.panel-custom .panel-heading{
+    border-top-left-radius : 0;
+    border-top-right-radius: 0;
+    border-bottom: none;
+}
+.playlist-tracks-artist-name{
+    margin-left: 30px;
+    color : #b0bec5;
+}
+.playlist-badge{
+    background-color: #009688;
+}
+.playing{
+    background-color :  #cddc39;
+}
+.playlist-play-button{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    font-size:20px;
+    line-height:1.45;
+    text-align:center;
+    padding: 2px 0;
+}
+.playlist-play-button > .glyphicon-plus-sign{
+    color: #5CB85C; 
+}
+.playlist-delete-button:hover{
+    color : red;
+}

@@ -1,0 +1,17 @@
+#all-tracks thead{
+    background-image: linear-gradient(to bottom, #8bc34a 0px,  #4caf50 100%);
+    background-repeat: repeat-x;
+    color : white;
+}
+#all-tracks tbody{
+    background-color: white;
+}
+#all-tracks,.table-info-artist > tbody > tr:hover{
+    background-color: #eaeaea;
+}
+#all-tracks td a:hover{
+    text-decoration: none;
+}
+.track-thumbnail > .thumbnail{
+    height: 190px;
+}

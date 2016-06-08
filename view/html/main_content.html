@@ -1,0 +1,37 @@
+<!-- Contenu principal de la page 
+Il sera modifié à l'aide de fonctions JavaScript -->
+<div class="col-md-9 col-xs-12  pull-right" id="main-panel">
+    <div class="col-md-12" id="dashboard">
+        
+        <!-- Message d'erreur affiché en cas d'erreur d'authentification -->
+        <div class="alert alert-danger alert-dismissible" id="connect-error" role="alert">
+            <button type="button" class="close" onclick="$('#connect-error').hide(200)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <strong>Erreur !</strong> Nom d'utilisateur ou mot de passe incorrect
+        </div>
+        <div class="alert alert-success alert-dismissible" id="connect-success" role="alert">
+            <button type="button" class="close" onclick="$('#connect-success').hide(200)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <p id="connect-success-text"></p>
+        </div>
+        <div class="alert alert-success alert-dismissible" id="subsribe-success" role="alert">
+            <button type="button" class="close" onclick="$('#subsribe-success').hide(200)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            Insrciption effectuée avec succès. Vous pouvez maintenant vous connecter
+        </div>
+        
+        
+        <!-- Titre -->
+        <h3><span class="glyphicon glyphicon-bookmark"> </span> Tableau de Bord</h3>
+        
+        <!-- Contenu qui sera modifié -->
+        <div class="col-md-12" id="main-content">
+            
+            <div class="jumbotron">
+                <p>Bienvenue dans notre pojet développé dans le cadre du cours de Programmation Web.</p>
+                <p>Si vous souhaitez sauvegarder et accéder à vos playlists depuis n'importe où, veuillez créer un compte</p>
+                <p><button class="btn btn-success no-radius" onclick="displaySubscribeForm();">S'inscrire</button></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

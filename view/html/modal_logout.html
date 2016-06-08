@@ -1,0 +1,34 @@
+<!-- Modal demandant confirmation pour se déconnecter -->
+<div class="modal fade" id="modalLogout">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-color-custom radius">
+                <!-- Bouton de fermeture du modal -->
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+                <!-- Titre -->
+                <h4 class="modal-title">Déconnexion</h4>
+            </div>
+            
+            <div class = "modal-body">
+                
+                Voulez-vous vous déconnecter ?
+
+            </div>
+
+            <div class="modal-footer">
+                
+                <!-- Déconnexion en appuyant sur ce bouton -->
+                <button class="btn no-radius btn-success pull-left" id="btn-logout" data-dismiss="modal" onclick="logout()">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </button>
+                
+                <!-- Fermeture du modal -->
+                <button type="button" class="btn btn-danger no-radius pull-right" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
