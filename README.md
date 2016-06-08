@@ -8,3 +8,7 @@ Or the great deezer-like for the Semester 5 web development project
 ## License ##
 
 See **LICENSE** file for further informations.
+
+## Todo ##
+
+- change everything to a new language, because PHP is... PHP :-(
