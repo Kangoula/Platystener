@@ -7,4 +7,4 @@ Or the great deezer-like for the Semester 5 web development project
 
 ## License ##
 
-See **LICENSE.md** for further informations.
+See **LICENSE** file for further informations.
