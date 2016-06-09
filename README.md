@@ -11,4 +11,4 @@ See **LICENSE** file for further informations.
 
 ## Todo ##
 
-- change everything to a new language, because PHP is... PHP :-(
+- add support for Bower 
