@@ -18,7 +18,7 @@ class Base {
     private static function connect() {
         //on récupère les informations dans le fichier .ini
         $config = parse_ini_file("config.ini");
-        $dsn = $config['type'] . ':' . 'host=' . $config['host'] . ';dbname=' . $config['dbname'];
+        $dsn = $config['type'].':host='.$config['host'].';dbname='.$config['dbname'].'';
 
         try {
             //on se connecte à la base avec les informations contenues dans le fichier

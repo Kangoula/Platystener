@@ -10,7 +10,7 @@ include_once 'ControllerTrack.php';
 include_once 'ControllerArtist.php';
 include_once 'ControllerPlaylist.php';
 include_once 'ControllerPlaylistTracks.php';
-include_once 'ControllerUSer.php';
+include_once 'ControllerUser.php';
 
 //demarage de la session utilisateur
 session_start();

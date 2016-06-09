@@ -1,15 +1,15 @@
 <?php
 
-include_once '..\Base.php';
+include_once '../Base.php';
 
 /**
- * Représente les Playlists par utilisateur du site
+ * Représente les Playlists du site
  */
-class Playlist {
+class PlaylistTracks {
 
-    private $user_id;
     private $playlist_id;
-    private $playlist_name;
+    private $position;
+    private $track_id;
 
     /**
      * Constructeur
@@ -49,17 +49,18 @@ class Playlist {
      * @throws Exception 
      */
     public function delete() {
-        $query = "delete from playlists where playlist_id=?";
+        $query = "delete from playlists_tracks where playlist_id=? and track_id=?";
         try {
             $db = Base::getConnection();
 
             $pp = $db->prepare($query);
 
             $pp->bindParam(1, $this->playlist_id, PDO::PARAM_INT);
+            $pp->bindParam(2, $this->track_id, PDO::PARAM_INT);
             $pp->execute();
-        } catch (PDOException $e) {
+        } catch (PDOException $ex) {
             echo $query . "<br>";
-            throw new Exception($e->getMessage());
+            throw new Exception($ex->getMessage());
         }
     }
 
@@ -70,17 +71,30 @@ class Playlist {
      * @throws Exception
      */
     public function insert() {
-        $query = "insert into playlists (user_id,playlist_name) values (?,?)";
+        $query = "insert into playlists_tracks (track_id, playlist_id, position) values (?,?,?)";
+        $q2 = "select MAX(position) from playlists_tracks where playlist_id=?";
         try {
             $db = Base::getConnection();
-
+            
+            //on récupère la position du dernier titre de cette playlist
+            $ppq2 = $db->prepare($q2);
+            $ppq2->bindParam(1, $this->playlist_id, PDO::PARAM_INT);
+            
+            $ppq2->execute();
+            
+            $r1 = $ppq2->fetch(PDO::FETCH_ASSOC);
+            $this->position = $r1['MAX(position)']+1;
+            
+            echo $this->position;
+            
             $pp = $db->prepare($query);
 
-            $pp->bindParam(1, $this->user_id, PDO::PARAM_INT);
-            $pp->bindParam(2, $this->playlist_name, PDO::PARAM_STR);
-
+            $pp->bindParam(1, $this->track_id, PDO::PARAM_INT);
+            $pp->bindParam(2, $this->playlist_id, PDO::PARAM_INT);
+            $pp->bindParam(3, $this->position, PDO::PARAM_INT);
+            
             $pp->execute();
-            $this->playlist_id = $db->LastInsertId();
+            
         } catch (PDOException $e) {
             echo $query . "<br>";
             throw new Exception($e->getMessage());
@@ -92,43 +106,53 @@ class Playlist {
      * 
      * Retourne la ligne de la table correspondant à l'ID passé en paramètre
      * @param $id l'identifiant à chercher
-     * @return l'user correspondant
+     * @return array
      */
     public static function findById($id) {
-        $query = "select * from playlists where playlist_id=?";
+        //on récupère les playlistTracks d'une playlist donnée ordonnées par leur position
+         $query = "select * from playlists_tracks where playlist_id=? order by position";
         try {
             $db = Base::getConnection();
 
             $pp = $db->prepare($query);
-
+            
             $pp->bindParam(1, $id, PDO::PARAM_INT);
             $pp->execute();
 
-            /* retourne un tableau indexé par les noms de colonnes 
-             * et aussi par les numéros de colonnes, 
-             * commençant à l'index 0
-             */
-            $rep = $pp->fetch(PDO::FETCH_ASSOC);
-            
+            //creation d'un tableau d'objets playlistTracks
+            $rep = $pp->fetchAll(PDO::FETCH_OBJ);
+            $playlists = array();
+
+            //pour chaque entitée renvoyée par la requète on va l'ajouter dans un tableau
+            foreach ($rep as $row) {
+                $pl = array(
+                    'playlist_id' => $row->playlist_id,
+                    'track_id' => $row->track_id,
+                    'position' => $row->position
+                );
+                $playlists[] = $pl;
+            }
         } catch (PDOException $e) {
             echo $query . "<br>";
             throw new Exception($e->getMessage());
         }
-        return $rep;
+
+        return $playlists;
     }
 
     /**
      * Retourne toutes les playlists contenues dans la BDD
      * 
-     * @return Un tableau de playlists
+     * @return array
      * @throws Exception
      */
     public static function findAll() {
-        $query = "select * from playlists ";
+        $query = "select * from playlists_tracks";
         try {
             $db = Base::getConnection();
 
             $pp = $db->prepare($query);
+            
             $pp->execute();
 
             //creation d'un tableau d'objets user
@@ -138,9 +162,9 @@ class Playlist {
             //pour chaque user renvoyé par la requète on va l'ajouter dans un tableau
             foreach ($rep as $row) {
                 $pl = array(
-                    'user_id' => $row->user_id,
                     'playlist_id' => $row->playlist_id,
-                    'playlist_name' => $row->playlist_name
+                    'track_id' => $row->track_id,
+                    'position' => $row->position
                 );
                 $playlists[] = $pl;
             }
@@ -151,44 +175,35 @@ class Playlist {
 
         return $playlists;
     }
-
+    
     /**
-     * Recherche une playlist en fonction du nom d'utilisateur
-     * 
-     * @param type $user_id
-     * @return \Playlist
+     * Recherche une chanson donnée dans une playlist donnée
+     * @param int $playlist_id
+     * @param int $track_id
+     * @return array
      * @throws Exception
      */
-    public static function findByUser($user_id) {
-        //l'utilisateur par défaut est l'utilisateur 1
-        $query = "select * from playlists where user_id=? or user_id=1";
+    public static function findByPlaylistAndTrackId($playlist_id, $track_id) {
+        //on récupère la PlaylistTrack
+         $query = "select * from playlists_tracks where playlist_id=? and track_id=?";
         try {
             $db = Base::getConnection();
 
             $pp = $db->prepare($query);
-
-            $pp->bindParam(1, $user_id, PDO::PARAM_INT);
-                        
+            
+            $pp->bindParam(1, $playlist_id, PDO::PARAM_INT);
+            $pp->bindParam(2, $track_id, PDO::PARAM_INT);
             $pp->execute();
 
-            //creation d'un tableau d'objets user
-            $rep = $pp->fetchAll(PDO::FETCH_OBJ);
-            $playlists = array();
+            //creation d'un tableau contenant les informations renvoyées par la BDD
+            $rep = $pp->fetch(PDO::FETCH_ASSOC);
 
-            //pour chaque user renvoyé par la requète on va l'ajouter dans un tableau
-            foreach ($rep as $row) {
-                $pl = array(
-                    'user_id' => $row->user_id,
-                    'playlist_id' => $row->playlist_id,
-                    'playlist_name' => $row->playlist_name
-                );
-                $playlists[] = $pl;
-            }
         } catch (PDOException $e) {
             echo $query . "<br>";
             throw new Exception($e->getMessage());
         }
-        return $playlists;
+
+        return $rep;
     }
 
 }

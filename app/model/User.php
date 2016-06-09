@@ -1,6 +1,6 @@
 <?php
 
-include_once '..\Base.php';
+include_once '../Base.php';
 
 /**
  * Représente les utilisateurs du site
