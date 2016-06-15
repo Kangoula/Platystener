@@ -5,20 +5,21 @@ services:
      context: .
      dockerfile: Dockerfile
    ports:
-     - 80:80
+     - 80:80  
+   container_name: platystener
+   volumes:
+     - ./app/:/var/www/html/
    restart: always
    links:
      - db
   db:
-    # build:
-    #  context: .
-    #  dockerfile: Dockerfile-database
     image: mysql
+    container_name: platystener_db
     volumes:
       - ./mysql:/var/lib/mysql
       - ./database:/docker-entrypoint-initdb.d
     restart: always
     environment:
-      MYSQL_DATABASE: projet_web_jamendo
+      MYSQL_DATABASE: jamendo 
       MYSQL_DATABASE_USER: root
       MYSQL_ROOT_PASSWORD: pass
