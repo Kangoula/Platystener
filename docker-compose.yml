@@ -7,12 +7,10 @@ services:
    ports:
      - 80:80  
    container_name: platystener
-   volumes:
-     - ./app/:/var/www/html/
    restart: always
    links:
-     - db
-  db:
+       - database:database
+  database:
     image: mysql
     container_name: platystener_db
     volumes:
@@ -21,5 +19,4 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: jamendo 
-      MYSQL_DATABASE_USER: root
       MYSQL_ROOT_PASSWORD: pass
