@@ -9,8 +9,8 @@ services:
    container_name: platystener
    restart: always
    links:
-       - database:database
-  database:
+       - db:db
+  db:
     image: mysql
     container_name: platystener_db
     volumes:
