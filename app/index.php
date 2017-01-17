@@ -42,7 +42,7 @@ $navbar .= $nav_btn . '</div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>';
 
-//on affiche les éléments de la page 
+//on affiche les éléments de la page
 echo
 '<!DOCTYPE html>
     <html>' . $head .
@@ -64,4 +64,3 @@ echo
  . $footer .
  '</body>
     </html>';
-

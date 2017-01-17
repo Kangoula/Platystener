@@ -1,19 +1,18 @@
 version: "2"
 services:
   app:
-   image: kangoula/platystener
-   ports:
-     - 80:80
-   container_name: platystener
-   restart: always
-   links:
-       - db:db
-  db:
-    image: mysql:latest
-    container_name: platystener_db
-    volumes:
-      - ./database:/docker-entrypoint-initdb.d
+    build:
+      context: .
+      dockerfile: app.dockerfile
+    ports:
+      - 80:80
+    container_name: platystener
     restart: always
-    environment:
-      MYSQL_DATABASE: jamendo
-      MYSQL_ROOT_PASSWORD: pass
+    links:
+      - db:db
+  db:
+    build:
+      context: .
+      dockerfile: database.dockerfile
+    container_name: platystener_db
+    restart: always
